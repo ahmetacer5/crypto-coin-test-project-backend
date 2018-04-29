@@ -11,8 +11,7 @@ var apptools = require('./apptools');
 var app = express();
 
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://cryptouser:melanko5@localhost:27017/cryptodb'); // connect to database
-app.set('superSecret', 'ldskASDF2fmgnASDFaoAWE3123TMKA222NET'); // secret variable
+mongoose.connect(apptools.connectionString); // connect to database
 
 
 app.use(bodyParser.urlencoded({extended: false, limit: '50mb'}));

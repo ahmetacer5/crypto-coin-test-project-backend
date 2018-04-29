@@ -3,6 +3,8 @@ var Currency = require('./models/cryptocurreny');
 
 
 var self = module.exports = {
+    connectionString: 'mongodb://cryptouser:melanko5@localhost:27017/cryptodb',
+    superSecret: 'ldskASDF2fmgnASDFaoAWE3123TMKA222NET',
     getCurrencyEuroValue: function (currencyCode, callback) {
         var url = 'https://min-api.cryptocompare.com/data/price?fsym=' + currencyCode + '&tsyms=EUR';
 

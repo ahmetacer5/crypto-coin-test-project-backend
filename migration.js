@@ -1,9 +1,10 @@
 var mongoose = require('mongoose');
 var User = require('./models/user');
 var CryptoJS = require("crypto-js");
+var apptools = require('./apptools');
 
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://cryptouser:melanko5@localhost:27017/cryptodb'); // connect to database
+mongoose.connect(apptools.connectionString); // connect to database
 
 function encryptPw(value) {
     var key = CryptoJS.enc.Base64.parse('37KvDCAC11CCXLOKSX4CvjYOh9Y');
@@ -13,9 +14,9 @@ function encryptPw(value) {
 }
 
 var user_data = {
-    name: 'William',
-    surname: 'Smith',
-    username: 'williamsmith',
+    name: 'Ahmet',
+    surname: 'Acer',
+    username: 'ahmetacer',
     password: encryptPw('123456'),
     createTime: new Date()
 };

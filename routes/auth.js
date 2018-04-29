@@ -2,6 +2,7 @@ var express = require('express');
 var dateTime = require('node-datetime');
 var jwt = require('jsonwebtoken');
 var User = require('../models/user');
+var apptools = require('../apptools');
 
 module.exports = function (app) {
     var AuthRoutes = express.Router();
@@ -20,7 +21,7 @@ module.exports = function (app) {
             _id: user_data._id,
         };
 
-        var token = jwt.sign(payload, app.get('superSecret'), {
+        var token = jwt.sign(payload, apptools.superSecret, {
             expiresIn: 60 * 60 // expires in 24 hours
 
         });

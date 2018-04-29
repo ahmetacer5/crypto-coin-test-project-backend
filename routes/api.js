@@ -14,7 +14,7 @@ module.exports = function (app) {
         var token = req.body.token || req.query.token || req.headers['x-access-token'];
 
         if (token) {
-            jwt.verify(token, app.get('superSecret'), function (err, decoded) {
+            jwt.verify(token, apptools.superSecret, function (err, decoded) {
                 if (err) {
                     return res.status(401).send({success: false, message: 'Failed to authenticate token.'});
                 } else {
